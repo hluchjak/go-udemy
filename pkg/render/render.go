@@ -1,21 +1,10 @@
 package render
 
 import (
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 )
-
-func RenderTemplate(w http.ResponseWriter, tmpl string) {
-	prsdTmpl, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.gohtml")
-
-	err := prsdTmpl.Execute(w, nil)
-	if err != nil {
-		fmt.Println("error parsing template:", err)
-		return
-	}
-}
 
 var tc = make(map[string]*template.Template)
 
